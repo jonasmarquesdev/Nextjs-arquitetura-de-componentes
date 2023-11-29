@@ -1,6 +1,6 @@
 const theme = {
   typography: {
-    fontFamily: '"Opens Sans", "sans-serif"'
+    fontFamily: '"Opens Sans", sans-serif'
   }
 };
 
