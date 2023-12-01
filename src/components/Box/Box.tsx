@@ -2,8 +2,7 @@ import { BaseComponent } from "@src/theme/BaseComponent";
 import { StyleSheet } from "@src/theme/StyleSheet";
 import React from "react";
 interface BoxProps {
-  // vamos resolver esse any depois
-  tag?: any;
+  tag?: 'div' | 'main' | 'article' | 'section' | 'ul' | string;
   children?: React.ReactNode;
   styleSheet?: StyleSheet;
 }
