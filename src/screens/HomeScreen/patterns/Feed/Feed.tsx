@@ -1,4 +1,5 @@
 import Box from "@src/components/Box/Box";
+import Icon from "@src/components/Icon/Icon";
 import Text from "@src/components/Text/Text";
 import React from "react";
 
@@ -17,6 +18,10 @@ export default function Feed({ children }: FeedProps) {
 Feed.Header = () => {
   return (
     <Box>
+      <Icon name="youtube" />
+      <Icon name="twitter" />
+      <Icon name="instagram" />
+      <Icon name="github" />
       <Text>Feed Header</Text>
     </Box>
   );
