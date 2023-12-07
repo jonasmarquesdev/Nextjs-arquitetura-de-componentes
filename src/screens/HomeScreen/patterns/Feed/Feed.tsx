@@ -1,6 +1,7 @@
 import Box from "@src/components/Box/Box";
 import Icon from "@src/components/Icon/Icon";
 import Image from "@src/components/Image/Image";
+import Link from "@src/components/Link/Link";
 import Text from "@src/components/Text/Text";
 import React from "react";
 
@@ -28,7 +29,9 @@ Feed.Header = () => {
         src="https://github.com/jonasmarquesdev.png" 
         alt="Imagem de perfil" 
       />
-      <Icon name="youtube" />
+      <Link href="http://youtube.com">
+        <Icon name="youtube" />
+      </Link>
       <Icon name="twitter" />
       <Icon name="instagram" />
       <Icon name="github" />
