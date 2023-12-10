@@ -23,6 +23,8 @@ export default function Button({
   return (
     <ButtonBase
       styleSheet={{
+        alignItems: 'center',
+        justifyContent: 'center',
         alignSelf: 'flex-start',
         // [Color + Variant]
         ...colorVariantBy(theme, colorVariant, variant),
