@@ -1,0 +1,9 @@
+site: 
+  title: "Jonas Marques - Timeline"
+  description: "Bem vindo a minha timeline pessoal"
+personal: 
+  name: "Jonas Marques"
+  avatar: https://github.com/jonasmarquesdev.png
+  socialNetworks: 
+    youtube: "https://youtube.com"
+    github: "https://github.com/jonasmarquesdev"
