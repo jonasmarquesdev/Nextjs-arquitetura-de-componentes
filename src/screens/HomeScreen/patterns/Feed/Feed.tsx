@@ -4,6 +4,7 @@ import Icon from "@src/components/Icon/Icon";
 import Image from "@src/components/Image/Image";
 import Link from "@src/components/Link/Link";
 import Text from "@src/components/Text/Text";
+import { useTemplateConfig } from "@src/services/template/TemplateConfigContext";
 import { useTheme } from "@src/theme/ThemeProvider";
 import React from "react";
 
@@ -31,6 +32,8 @@ export default function Feed({ children }: FeedProps) {
 
 Feed.Header = () => {
   const theme = useTheme();
+  const templateConfig = useTemplateConfig();
+
   return (
     <Box
       styleSheet={{
@@ -53,7 +56,7 @@ Feed.Header = () => {
             height: { xs: '100px', md: '128px' },
             borderRadius: '100%'
           }}
-          src="https://github.com/jonasmarquesdev.png" 
+          src={templateConfig?.personal?.avatar} 
           alt="Imagem de perfil" 
         />
         <Box
@@ -72,14 +75,31 @@ Feed.Header = () => {
         </Box>
       </Box>
       <Text tag="h1" variant="heading4">
-        Jonas Marques
+        {templateConfig?.personal?.name}
       </Text>
-      {/* <Link href="http://youtube.com">
-        <Icon name="youtube" />
-      </Link>
-      <Icon name="twitter" />
-      <Icon name="instagram" />
-      <Icon name="github" /> */}
+
+      <Box
+        styleSheet={{
+          flexDirection: "row",
+          gap: "4px",
+        }}
+      >
+        {Object.keys(templateConfig.personal.socialNetworks).map(key => {
+          const socialNetworks = templateConfig.personal.socialNetworks[key];
+          if(socialNetworks) {
+            return (
+              <Link
+                key={key}
+                target="_blank"
+                href={templateConfig.personal.socialNetworks[key]}
+              >
+                <Icon name={key as any} />
+              </Link>
+            )
+          }
+          return null;
+        })}
+      </Box>
     </Box>
   );
 }
