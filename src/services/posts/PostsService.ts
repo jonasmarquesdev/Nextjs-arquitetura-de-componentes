@@ -24,7 +24,7 @@ export default function PostsService() {
         const { data, content } = matter(postFile);
         const post: Post = {
           metadata: {
-            date: data.date.toString(),
+            date: new Date(data.date).toISOString(),
             url: data.url,
             excerpt: data.excerpt,
             tags: data.tags,
