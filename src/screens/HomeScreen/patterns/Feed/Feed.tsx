@@ -115,7 +115,9 @@ Feed.Posts = ({ posts }: FeedPostsProps) => {
       <Text variant="heading3" styleSheet={{ marginBottom: "27px" }}>
         Últimas Atualizações
       </Text>
-      {posts.map(({ slug, title, metadata, image }) => {
+      {posts.sort((a, b) => 
+          new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime()
+        ).map(({ slug, title, metadata, image }) => {
         const { date, excerpt, url, tags } = metadata;
         return (
           <FeedPost 
