@@ -67,7 +67,7 @@ Feed.Header = () => {
           }}
         >
           <Box styleSheet={{ flex: 1, justifyContent: 'space-between', display: { xs: 'none', md: 'flex' } }}>
-            <Button fullWidth colorVariant="primary" size="xl" href="/">Newsletter</Button>
+            <Button fullWidth colorVariant="primary" size="xl" href="/newsletter">Newsletter</Button>
             <Button fullWidth colorVariant="neutral" size="xl" href="/">Buy me a coffe</Button>
           </Box>
           <Box styleSheet={{ flex: 1, justifyContent: 'space-between', display: { xs: 'flex', md: 'none' } }}>
