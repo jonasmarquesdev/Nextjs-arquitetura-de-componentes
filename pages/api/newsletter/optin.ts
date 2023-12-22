@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { NextApiRequest, NextApiResponse } from "next";
+import sendGridMail from "@sendgrid/mail";
 
 // Supabase Setup
 // ============
@@ -39,9 +40,23 @@ const controllerByMethod = {
     // cria usuários de fato do sistema
     await dbClient.auth.admin.createUser({ email: email }); 
 
-    response
-      .status(httpStatus.Success)
-      .json({ message: "Post request!" })
+    try {
+      sendGridMail.setApiKey(process.env.SENDGRID_KEY);
+      await sendGridMail.send({
+        to: "contato@hotmail.com", // email
+        from: "jonasmarques.developer@gmail.com",
+        subject: "Titulo do email!",
+        html: "Aqui vai o <strong>Conteúdo!!!<strong>"
+      });
+
+      response
+        .status(httpStatus.Success)
+        .json({ message: "Post request!" });
+    } catch (error) {
+      response
+        .status(httpStatus.InternalServerError)
+        .json({ message: "Falhamos em enviar o seu email!" });
+    }
   },
   async GET(request: NextApiRequest, response: NextApiResponse) {
     const { data, error } = await dbClient
